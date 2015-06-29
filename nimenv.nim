@@ -25,6 +25,8 @@ proc isEmpty(path: string): bool =
   return true
 
 proc install(path: string) =
+  let path = if isAbsolute(path): path
+             else: getCurrentDir() / path
   echo "creating nimenv at $1..." % [path]
 
   if existsDir(path) and not isEmpty(path):
