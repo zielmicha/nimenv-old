@@ -1,0 +1,14 @@
+_NIMENV_OLD_NIMBLE_HOME="$NIMBLE_HOME"
+_NIMENV_OLD_PATH="$PATH"
+_NIMENV_OLD_PS1="$PS1"
+
+export NIMBLE_HOME=[[path]]
+export PATH="$NIMBLE_HOME/bin:$PATH"
+_NIMENV_PREFIX="{[[name]]}"
+PS1="$_NIMENV_PREFIX$PS1"
+
+deactivate() {
+    export PATH="$_NIMENV_OLD_PATH"
+    export NIMBLE_HOME="$_NIMENV_NIMBLE_HOME"
+    PS1="$_NIMENV_OLD_PS1"
+}
